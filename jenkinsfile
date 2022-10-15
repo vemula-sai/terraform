@@ -1,0 +1,18 @@
+pipeline {
+    agent { label 'TERRA' }
+    stages{
+        stage( 'vcs' ){
+            steps{
+                git url: 'https://github.com/vemula-sai/terraform.git',
+                branch: 'terraform'
+            }
+        }
+        stage('terraform s3 bucket'){
+            steps{
+                sh 'terraform init'
+                sh 'terraform validate'
+                sh 'terraform apply -auto-approve'
+            }
+        }
+    }
+}
