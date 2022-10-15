@@ -6,10 +6,12 @@ terraform {
     }
   }
 }
+
+# Configure the AWS Provider
 provider "aws" {
-    region = "us-west-2"
+  region = "us-east-2"
 }
 
-resource "aws_s3_bucket" "my1bucket" {
-    bucket = "sai934"
+resource "aws_s3_bucket" "first_bucket"  {
+    bucket = "sai9347"
 }
